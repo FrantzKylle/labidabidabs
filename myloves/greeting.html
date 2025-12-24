@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Merry Christmas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-bg">
+
+    <div class="card">
+        <img src="lalabs.png" class="card-img">
+
+        <div class="banner">
+            🎄 Merry Christmas my Loves! 🎄
+        </div>
+    </div>
+
+    <!-- 🎵 MUSIC -->
+    <audio id="bgMusic" autoplay loop>
+        <source src="snow.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 🎉 CONFETTI LIBRARY -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- ❄️ EFFECTS -->
+    <script src="effects.js"></script>
+
+    <script>
+        const music = document.getElementById("bgMusic");
+
+        document.addEventListener("click", () => {
+            music.muted = false;
+            music.play();
+        }, { once: true });
+    </script>
+
+</body>
+</html>

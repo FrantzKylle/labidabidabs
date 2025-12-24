@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Christmas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* === GENERAL STYLES === */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(to bottom, #0b3d91, #1e5288);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #fff;
+            position: relative;
+        }
+
+        /* === CENTER PAGE === */
+        .center-page {
+            text-align: center;
+            z-index: 2;
+        }
+
+        /* === BUTTON STYLING === */
+        .open-btn {
+            background: linear-gradient(145deg, #ff4d4d, #ff9999);
+            border: 2px solid #fff;
+            border-radius: 12px;
+            padding: 20px 50px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255, 77, 77, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .open-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+        }
+
+        /* === SNOW EFFECT === */
+        .snow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0.2; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="center-page">
+        <button class="open-btn" onclick="location.href='greeting.html'">🎁 Open</button>
+    </div>
+
+    <!-- Snowflakes Container -->
+    <div class="snow" id="snow"></div>
+
+    <script>
+        // === CREATE SNOWFLAKES ===
+        const snowContainer = document.getElementById('snow');
+        const snowCount = 80; // number of snowflakes
+
+        for (let i = 0; i < snowCount; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.style.width = `${Math.random() * 8 + 2}px`;
+            snowflake.style.height = snowflake.style.width;
+            snowflake.style.left = `${Math.random() * 100}%`;
+            snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`;
+            snowflake.style.animationDelay = `${Math.random() * 5}s`;
+            snowContainer.appendChild(snowflake);
+        }
+    </script>
+
+</body>
+</html>
